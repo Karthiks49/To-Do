@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    border: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 40rem;
+}
+
+.header {
+    display: flex;
+    height: 3rem;
+    width: 100%;
+    background-color: #346fef;
+}
+
+.apps-icon {
+    width: 3rem;
+    height: 2.3rem;
+    color: white;
+    padding-top: 0.7rem;
+    cursor: pointer;
+}
+
+.apps-icon:hover {
+    background-color: #0f49c5;
+    transition-delay: 100ms;
+    transition-duration: 150ms;
+}
+
+.to-do {
+    padding-top: 1rem;
+    width: 4rem;
+    height: 2rem;
+    font-family: sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.search-bar-container {
+    height: 3rem;
+    width: 62.5rem;
+}
+
+.search-bar {
+    display: flex;
+    margin: 0;
+    border:0;
+    height: 2rem;
+    width: 25rem;
+    margin: 0.5rem 1rem 0.7rem 19rem;
+    border-radius: 0.1rem;
+    background-color: #c1d8f8;
+}
+
+.search-icon {
+    width: 2rem;
+    color: #346fef;
+    cursor: pointer;
+    padding-top: 0.25rem;
+    padding-right: 0.2rem;
+}
+
+.search-input {
+    margin: 0;
+    border: 0;
+    width: 22.55rem;
+    border-radius: 0.1rem;
+    outline: none;
+    font-size: 0.9rem;
+    background-color: #c1d8f8;
+}
+
+
+
+.search-input:hover, .search-bar:hover {
+    transition-delay: 50ms;
+    transition-duration: 150ms;
+    background-color: white;
+}
+
+.profile-and-options {
+    display: flex;
+    height: 3rem;
+    width: 12rem;
+}
+
+.setting-icon {
+    height: 2.4rem;
+    width: 3rem;
+    padding-top: 0.6rem;
+}
+
+.setting-icon:hover {
+    background-color: #0f49c5;
+    transition-delay: 100ms;
+    transition-duration: 150ms;
+}
+
+.help-icon {
+    height: 2.4rem;
+    width: 3rem;
+    padding-top: 0.6rem;
+}
+
+.help-icon:hover {
+    background-color: #0f49c5;
+    transition-delay: 100ms;
+    transition-duration: 150ms;
+}
+
+.notify-icon {
+    height: 2.4rem;
+    width: 3rem;
+    padding-top: 0.6rem;
+}
+
+.notify-icon:hover {
+    background-color: #0f49c5;
+    transition-delay: 100ms;
+    transition-duration: 150ms;
+}
+
+.profile-icon {
+    height: 2.4rem;
+    width: 3rem;
+    padding-top: 0.6rem;
+}
+
+.profile-icon:hover {
+    background-color: #0f49c5;
+    transition-delay: 100ms;
+    transition-duration: 150ms;
+}
+
+#right-icons {
+    color: #c1d8f8;
+    font-size: 25px;
+} 
+
+.to-do-body {
+    display: flex;
+    height: 38.6rem;
+}
+
+.left-portion {
+    display: block;
+    width: 18.5rem;
+    background-color: #eeeeee;
+}
+
+i {
+    cursor: pointer;
+}
+
+.menu-icon {
+    height: 4.5rem;
+    width: 5rem;
+}
+
+#left-icons {
+    padding-top: 2rem;
+    padding-left: 1rem;
+    font-size: 23px;
+    color:#808085;
+}
+
+.left-options {
+    height: 13.5rem;
+}
+
+
+.left-options > div {
+    display: flex;
+    height: 2.25rem;
+    cursor: pointer;
+}
+
+.left-options > div:hover {
+    background-color: white;
+}
+
+.left-options-icons {
+    height: 2.25rem;
+    width: 3rem;
+}
+
+.left-options-icons > i {
+    color: #808085;
+    padding-top: 0.4rem;
+    padding-left: 0.95rem;
+}
+
+.left-option-heading {
+    width: 10rem;
+    height: 1.65rem;
+    padding-top: 0.6rem;
+    padding-left: 0.3rem;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    color: #2e2e30;
+}
+
+.new-list-option {
+    margin-top: 1.5rem;
+    height: 5rem;
+}
+
+.left-bottom-options {
+    height: 2rem;
+    margin-top: 14.5rem;
+}
+
+.blocks {
+    width: 3.7rem;
+    cursor: pointer;
+}
+
+.blocks:hover {
+    background-color: #cac5c5;
+    transition-delay: 50ms;
+    transition-duration: 100ms;
+}
+
+.blocks > i {
+    color: #666669;
+    padding-top: 0.4rem;
+    padding-left: 0.95rem;  
+}
