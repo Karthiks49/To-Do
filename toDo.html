@@ -39,12 +39,12 @@
         </div>
       </div>
       <div class="to-do-body">
-        <div class="left-portion">
+        <div id="left-portion">
           <div class="menu-icon">
-            <i id="left-icons" class="material-icons">menu</i>
+            <i onclick="hide()" id="left-icons" class="material-icons">menu</i>
           </div>
           <div class="left-options">
-            <div>
+            <div onclick="myDay()">
               <div class="left-options-icons">
                 <i class="material-icons">wb_sunny</i>
               </div>
@@ -64,7 +64,7 @@
             </div>
             <div>
               <div class="left-options-icons">
-                <i class="material-icons">person_outline</i>
+                <i id="person-outline" class="material-icons">person_outline</i>
               </div>
               <div class="left-option-heading">Assigned to me</div>                    
             </div>
@@ -104,6 +104,35 @@
               </div>
             </div>
           </div>
+        </div>
+        <div id="right-portion">
+          <div class="right-side-header">
+            <div id="menu-icon-right" onclick="show()">
+              <i id="right-menu-icon" class="material-icons">menu</i>
+            </div>
+            <div class="myday-header">
+              <div class="myday-container">
+                <div class="myday-font">My Day
+                  <div class="more-option"><i id="more-option-myday" class="material-icons">more_horiz</i></div>
+                </div>
+                <div id="date-and-day"></div>
+              </div>
+            </div>
+            <div class="sort-suggestions">
+              <div class="sort-portion">
+                <div class="sort-icon">
+                  <i id="sort-suggestion-icons" class="material-icons">swap_vert</i>
+                </div>
+                <div class="sort-font">Sort</div>
+              </div>
+              <div class="suggestion-portion">
+                <div class="suggestion-icon">
+                  <i id="sort-suggestion-icons" class="material-icons">lightbulb_outline</i>
+                </div>
+                <div class="suggestion-font">Suggestions</div>
+              </div>
+            </div>  
+          </div> 
         </div>
       </div>
     </div> 

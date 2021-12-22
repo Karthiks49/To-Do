@@ -148,10 +148,14 @@ body {
     height: 38.6rem;
 }
 
-.left-portion {
-    display: block;
-    width: 18.5rem;
-    background-color: #eeeeee;
+#left-portion {
+    flex:1;
+    background-color: #eeeeee; 
+}
+
+#right-portion {
+    display:none;
+    flex: 4;
 }
 
 i {
@@ -164,7 +168,7 @@ i {
 }
 
 #left-icons {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     padding-left: 1rem;
     font-size: 23px;
     color:#808085;
@@ -231,4 +235,124 @@ i {
     color: #666669;
     padding-top: 0.4rem;
     padding-left: 0.95rem;  
+}
+
+.right-side-header {
+    display: flex;
+    height: 5rem;
+}
+
+#menu-icon-right {
+    display: none;
+    flex: 1;
+    margin: 0.48rem 1rem 1rem 1rem;
+}
+
+#right-menu-icon {
+    padding-top: 1rem;
+    font-size: 23px;
+    color:#808085;
+}
+
+#person-outline {
+    color: #5CA52D;
+}
+
+.myday-header {
+    height: 5rem;
+    flex: 60;
+}
+
+.sort-suggestions {
+    display: flex;
+    width: 13rem;
+    height: 5rem;
+}
+
+.myday-container {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    height: 4rem;
+    width: 10.5rem;
+}
+
+.myday-font {
+    display: flex;
+    height: 1.8rem;
+    padding-left: 0.6rem;
+    padding-top: 1rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+#date-and-day {
+    height: 1.2rem;
+    font-size: 1rem;
+    color: darkblue;
+}
+
+.more-option {
+    width: 2rem;
+    height: 1.8rem;
+    margin-left: 1rem;
+}
+
+#more-option-myday {
+    font-size: 20px;
+    color:#808085;
+    padding-top: 0.1rem;
+    padding-left: 0.3rem;
+}
+
+.sort-portion {
+    display: flex;
+    height: 3rem;
+    margin-top: 0.5rem;
+    flex: 2;
+}
+
+.suggestion-portion {
+    display: flex;
+    height: 3rem;
+    flex: 4;
+    margin-top: 0.5rem;
+}
+
+.sort-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.8rem;
+}
+
+#sort-suggestion-icons {
+    color:#808085;
+}
+
+.sort-font {
+    margin-top: 0.8rem;
+    height: 1.3rem;
+    width: 2.7rem;
+    color:#808085;
+    padding-top: 0.2rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.suggestion-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.8rem;
+}
+
+.suggestion-font {
+    margin-top: 0.8rem;
+    height: 1.3rem;
+    width: 6rem;
+    color:#808085;
+    font-size: 0.9rem;
+    padding-top: 0.2rem;
+    padding-left: 0.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
