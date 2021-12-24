@@ -5,6 +5,7 @@
     <title>My Day - To Do</title>
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="toDo.js"></script>
   </head>
@@ -17,7 +18,7 @@
         <div class="to-do" align="center">To Do</div>
         <div class="search-bar-container">
           <div class="search-bar">
-              <input class="search-input">
+              <input class="search-input" placeholder="Search">
               <div class="search-icon" align="right">
                 <i class="material-icons">search</i>  
               </div>
@@ -50,7 +51,7 @@
               </div>
                 <div class="left-option-heading">My Day</div>
             </div>
-            <div>
+            <div onclick="important()">
               <div class="left-options-icons">
                 <i class="material-icons">star_border</i>  
               </div>
@@ -70,21 +71,21 @@
             </div>
             <div>
               <div class="left-options-icons">
-                <i class="material-icons">flag</i>
+                <i id="flagged-task-add-buttons" class="material-icons">flag</i>
               </div>
               <div class="left-option-heading">Flagged email</div>                    
             </div>
             <div>
               <div class="left-options-icons">
-                <i class="material-icons">home</i>
+                <i id="flagged-task-add-buttons" class="material-icons">home</i>
               </div>
               <div class="left-option-heading">Tasks</div>                    
             </div>
             <div class="new-list-option">
               <div class="left-options-icons">
-                <i class="material-icons">add</i>   
+                <i id="flagged-task-add-buttons" class="material-icons">add</i>   
               </div>
-              <div class="left-option-heading">New List</div>  
+              <div class="left-option-heading-newlist">New list</div>  
             </div>
             <div class="left-bottom-options">
               <div class="blocks">
@@ -105,7 +106,7 @@
             </div>
           </div>
         </div>
-        <div id="right-portion">
+        <div id="right-portion-myday">
           <div class="right-side-header">
             <div id="menu-icon-right" onclick="show()">
               <i id="right-menu-icon" class="material-icons">menu</i>
@@ -115,7 +116,9 @@
                 <div class="myday-font">My Day
                   <div class="more-option"><i id="more-option-myday" class="material-icons">more_horiz</i></div>
                 </div>
-                <div id="date-and-day"></div>
+                <div onclick="dateDay()">
+                  <span id="date-and-day"></span>
+                </div>
               </div>
             </div>
             <div class="sort-suggestions">
@@ -133,9 +136,26 @@
               </div>
             </div>  
           </div> 
+          <div id="myday-add-task-container">
+            <div class="add-task-button">
+              <i class="material-icons">add</i>
+            </div>
+            <input onclick="addTaskAdditional()" class="add-task-input" placeholder="Add a task">
+          </div>
+          <div id="myday-add-task-container-additional">
+            <div class="add-task-additional-input">
+              <i class="material-icons">radio_button_unchecked</i>
+              <input class="add-task-input" placeholder="Add a task">
+            </div>
+            <div class="addtask-additional-options">
+              <i class="material-icons">insert_invitation</i>
+              <i class="material-icons">notifications_none</i>
+              <i class="material-icons-outlined">event_repeat</i>
+              <div class="add-option-in-addition">Add</div>
+            </div>
+          </div>
         </div>
       </div>
     </div> 
   </body>
 </html>
-
