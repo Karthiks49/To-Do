@@ -387,7 +387,6 @@ left-options > div:focus {
 #myday-add-task-container {
     display: flex;
     height: 3.8rem;
-    width: 61.8rem;
     margin-top: 0.2rem;
     margin-left: 0.5rem;
     border-radius: 0.3rem;
@@ -397,7 +396,6 @@ left-options > div:focus {
 #myday-add-task-container-additional {
     display: none;
     height: 6.3rem;
-    width: 61.8rem;
     margin-top: 0.2rem;
     margin-left: 0.5rem;
     border-radius: 0.3rem;
@@ -424,7 +422,7 @@ left-options > div:focus {
 
 .add-task-additional-input > i {
     font-size: 1.5rem;
-    margin: 1.2rem 0.2rem 0 0.4rem;
+    margin: 1.2rem 0.7rem 0 0.4rem;
     color: #66666998;
 }
 
@@ -471,4 +469,5 @@ left-options > div:focus {
     font-family: sans-serif;
     cursor: pointer;
 }
+
 

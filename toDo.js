@@ -1,3 +1,10 @@
+var today = new Date();
+var day = today.getDay();
+var month = today.getMonth();
+var date = today.getDate();
+var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+var monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+document.getElementById("date-and-day").innerText = daylist[day] + ', ' + monthList[month] + ' ' + date;
 
 function hide() {
     document.getElementById("left-portion").style.display = 'none';
@@ -24,12 +31,4 @@ function addTaskAdditional() {
     document.getElementById("myday-add-task-container-additional").style.display = 'block';
 }
 
-function dateDay() {
-var today = new Date();
-var day = today.getDay();
-var month = today.getMonth();
-var date = today.getDate();
-var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
-var monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-document.getElementById("date-and-day").innerText = daylist[day] + ', ' + monthList[month] + ' ' + date;
-}
+
