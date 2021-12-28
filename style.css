@@ -155,7 +155,7 @@ body {
 
 #right-portion-myday {
     display: block;
-    flex: 4;
+    flex: 5;
 }
 
 i {
@@ -175,72 +175,146 @@ i {
 }
 
 .left-options {
-    height: 13.5rem;
+    flex: 0.9;
 }
 
-.left-options > div {
+.new-list-option {
+    display: flex;
+    flex: 1;
+    height: 2rem;
+}
+
+.menu-item {
     display: flex;
     height: 2.25rem;
+    width: 18rem;
     cursor: pointer;
 }
 
-left-options > div:focus {
+.menu-count {
+    height: 2.25rem;
+    width: 0.9rem;
+}
+
+.menu-item:focus {
     background-color: #d6d2d2;
 }
 
-.left-options > div:hover {
+.menu-item:hover {
     background-color: white;
 }
 
-.left-options-icons {
-    height: 2.25rem;
-    width: 3rem;
+.new-list-add-input {
+    display: flex;
+    height: 2rem;
+    padding-left: 0.9rem;
+    width: 100%;
 }
 
-.left-options-icons > i {
-    color: #808085;
-    padding-top: 0.4rem;
-    padding-left: 0.95rem;
+.new-list-add-input:hover {
+    background-color: white;
 }
 
-#flagged-task-add-buttons {
-    color: #3E65E8;
-    padding-top: 0.4rem;
-    padding-left: 0.95rem;
+.new-list-add-input > i {
+    padding-top: 0.3rem;
 }
 
 .left-option-heading {
     width: 10rem;
     height: 1.65rem;
-    padding-top: 0.6rem;
+    padding-top: 0.5rem;
     padding-left: 0.3rem;
     font-size: 0.9rem;
     font-family: sans-serif;
     color: #2e2e30;
 }
 
+.left-option-heading::before {
+    font-family: "Material Icons";
+    padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+    font-size: 1.2rem;
+    vertical-align: sub;
+}
+
+.left-options :nth-child(1) > .left-option-heading::before {
+    content: "\e518";
+    color: #767678;
+} 
+
+.left-options :nth-child(2) > .left-option-heading::before {
+    content: "\e885";
+    color: #767678;
+} 
+
+.left-options :nth-child(3) > .left-option-heading::before {
+    content: "\e24f";
+    color: #767678;
+} 
+
+.left-options :nth-child(4) > .left-option-heading::before {
+    content: "\e7fd";
+    color: #578947;
+} 
+
+.left-options :nth-child(5) > .left-option-heading::before {
+    content: "\e153";
+    color: #3E69E8;
+} 
+
+.left-options :nth-child(6) > .left-option-heading::before {
+    content: "\e88a";
+    color: #3E69E8;
+} 
+
+.left-options :nth-child(6) {
+    margin-bottom: 15px;
+}
+
+.left-options :nth-child(n+7) > .left-option-heading::before {
+    content: "\e896";
+    color: #3E69E8;
+} 
+
+.left-options :nth-child(n+7) > .left-option-heading {
+    color: #2E5DDC;
+}
+
+.new-list-add-input > i {
+    color: #808085;
+}
+
+.new-list-add-input > span {
+    padding-left: 1.1rem;
+    padding-top: 0.3rem;
+    font-size: 1.4rem;
+    font-weight: lighter;
+    color: #4C6CFB;
+    cursor: pointer;
+}
+
 .left-option-heading-newlist {
-    width: 10rem;
-    height: 1.65rem;
-    padding-top: 0.6rem;
-    padding-left: 0.3rem;
-    font-size: 0.9rem;
+    width: 11.5rem;
+    height: 2rem;
+    font-size: 14px;
+    margin-left: 0.4rem;
     font-family: sans-serif;
     color: #3E65E8;
+    outline: none;
+    border: none;
+    background-color: #eeeeee;
+}
+
+.left-option-heading-newlist:hover {
+    background-color: white;
 }
 
 .left-option-heading::selection {
     font-weight: 700;
 }
 
-.new-list-option {
-    margin-top: 1.5rem;
-    height: 5rem;
-}
-
 .left-bottom-options {
-    height: 2rem;
-    margin-top: 14.5rem;
+    display: flex;
+    height: 2.2rem;
 }
 
 .blocks {
@@ -256,8 +330,9 @@ left-options > div:focus {
 
 .blocks > i {
     color: #666669;
-    padding-top: 0.4rem;
-    padding-left: 0.95rem;  
+    padding-top: 0.6rem;
+    padding-left: 1.3rem;  
+    font-size: 1.2rem;
 }
 
 .right-side-header {
@@ -470,4 +545,36 @@ left-options > div:focus {
     cursor: pointer;
 }
 
+.hide {
+    display: none;
+}
 
+.show {
+    display: block;
+}
+
+.flex-display {
+    display: flex;
+}
+
+.left-side-scroll-bar {
+    display: flex;
+    flex-direction: column;
+    height: 32rem;
+}
+
+/* width */
+.left-side-scroll-bar ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+   
+  /* Handle */
+.left-side-scroll-bar ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+.left-side-scroll-bar ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
