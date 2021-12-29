@@ -147,15 +147,53 @@ body {
 }
 
 #left-portion {
+    display: flex;
+    flex-direction: column;
+    height: 38.5rem;
     width: 18rem;
     background-color: #eeeeee; 
     -webkit-transition: .4s;
     transition: .4s;
 }
 
-#right-portion-myday {
-    display: block;
-    flex: 5;
+#right-portion {
+    flex: 4;
+}
+
+.right-side-new-list-head {
+    display: flex;
+    height: 3.7rem;
+}
+
+.sort-and-share {
+    display: flex;
+    width: 170px;
+    margin: 10px 0 5px 830px;
+    cursor: pointer;
+}
+
+.sort-and-share > i {
+    margin: 12px 5px 5px 5px;
+}
+
+.sort-share-font {
+    margin-top: 0.8rem;
+    height: 1.3rem;
+    width: 2.7rem;
+    color:#4589F0;
+    padding-top: 0.2rem;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+#sort-share-icons {
+    color: #5689F2;
+}
+
+.list-title {
+    height: 3rem;
+    background-color: #5CA52D;
 }
 
 i {
@@ -175,13 +213,12 @@ i {
 }
 
 .left-options {
-    flex: 0.9;
+    max-height: 30rem;
 }
 
 .new-list-option {
     display: flex;
-    flex: 1;
-    height: 2rem;
+    flex: 2;
 }
 
 .menu-item {
@@ -233,7 +270,7 @@ i {
     font-family: "Material Icons";
     padding: 0.2rem 0.7rem 0.2rem 0.7rem;
     font-size: 1.2rem;
-    vertical-align: sub;
+    vertical-align: text-bottom;
 }
 
 .left-options :nth-child(1) > .left-option-heading::before {
@@ -285,7 +322,7 @@ i {
 
 .new-list-add-input > span {
     padding-left: 1.1rem;
-    padding-top: 0.3rem;
+    padding-top: 0.4rem;
     font-size: 1.4rem;
     font-weight: lighter;
     color: #4C6CFB;
@@ -336,7 +373,7 @@ i {
 }
 
 .right-side-header {
-    display: flex;
+    display: none;
     height: 5rem;
 }
 
@@ -549,7 +586,7 @@ i {
     display: none;
 }
 
-.show {
+.appear {
     display: block;
 }
 
@@ -559,22 +596,8 @@ i {
 
 .left-side-scroll-bar {
     display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
     flex-direction: column;
-    height: 32rem;
 }
 
-/* width */
-.left-side-scroll-bar ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-   
-  /* Handle */
-.left-side-scroll-bar ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-.left-side-scroll-bar ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }

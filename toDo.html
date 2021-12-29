@@ -45,13 +45,13 @@
           </div>
           <div class="left-side-scroll-bar">
             <div class="left-options"></div>  
-            <div class="new-list-option">
-              <div class="new-list-add-input">
-                <i class="material-icons">add</i>   
-                <input id="input-list" class="left-option-heading-newlist" placeholder="New list"></input>
-                <span class="material-icons-outlined">add_chart</span>
-              </div>    
-            </div>
+          </div>
+          <div class="new-list-option">
+            <div class="new-list-add-input">
+              <i class="material-icons">add</i>   
+              <input id="input-list" class="left-option-heading-newlist" placeholder="New list"></input>
+              <span class="material-icons-outlined">add_chart</span>
+            </div>    
           </div>
           <div class="left-bottom-options">
             <div class="blocks">
@@ -71,8 +71,8 @@
             </div>
           </div>  
         </div>
-        <div id="right-portion-myday">
-          <div class="right-side-header">
+        <div id="right-portion">
+          <div id="right-side-header"  class="right-side-header">
             <div id="menu-icon-right">
               <i id="right-menu-icon" class="material-icons">menu</i>
             </div>
@@ -101,11 +101,19 @@
               </div>
             </div>  
           </div> 
+          <div id="right-side-new-list-head" class="right-side-new-list-head">
+            <div class="sort-and-share">
+              <i id="sort-share-icons" class="material-icons">swap_vert</i>
+              <div class="sort-share-font">Sort</div>
+              <i id="sort-share-icons" class="material-icons">person_add</i>
+              <div class="sort-share-font">Share</div>
+            </div>
+          </div>
           <div id="myday-add-task-container">
             <div class="add-task-button">
               <i class="material-icons">add</i>
             </div>
-            <input onclick="addTaskAdditional()" class="add-task-input" placeholder="Add a task">
+            <input class="add-task-input" placeholder="Add a task">
           </div>
           <div id="myday-add-task-container-additional">
             <div class="add-task-additional-input">

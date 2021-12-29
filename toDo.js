@@ -35,6 +35,15 @@ function addList(event) {
         subElements.appendChild(title);
         document.getElementsByClassName("left-options")[0].appendChild(subElements);
         document.getElementById("input-list").value = "";
+        document.getElementById("right-side-header").className = "hide";
+        document.getElementById("right-side-new-list-head").className = "appear";
+        let listTitle = document.createElement("div");
+        listTitle.setAttribute("class", "list-title");
+        document.getElementsByClassName("right-side-new-list-head")[0].appendChild(listTitle);
     }
 }
+
+
 console.log(items);
+
+
