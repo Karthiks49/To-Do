@@ -373,7 +373,7 @@ i {
 }
 
 .right-side-header {
-    display: none;
+    display: flex;
     height: 5rem;
 }
 
@@ -395,7 +395,7 @@ i {
 
 .myday-header {
     height: 5rem;
-    flex: 60;
+    width: 100%;
 }
 
 .sort-suggestions {
@@ -428,19 +428,6 @@ i {
     font-family: sans-serif;
     padding: 0.2rem 0 0.1rem 0.6rem;
     cursor: default;
-}
-
-.more-option {
-    width: 2rem;
-    height: 1.8rem;
-    margin-left: 1rem;
-}
-
-#more-option-myday {
-    font-size: 20px;
-    color:#808085;
-    padding-top: 0.1rem;
-    padding-left: 0.3rem;
 }
 
 .sort-portion {
@@ -497,17 +484,7 @@ i {
 }
 
 #myday-add-task-container {
-    display: flex;
-    height: 3.8rem;
-    margin-top: 0.2rem;
-    margin-left: 0.5rem;
-    border-radius: 0.3rem;
-    background-color: #e2dcdc93;
-}
-
-#myday-add-task-container-additional {
-    display: none;
-    height: 6.3rem;
+    flex: 5;
     margin-top: 0.2rem;
     margin-left: 0.5rem;
     border-radius: 0.3rem;
@@ -515,9 +492,13 @@ i {
 }
 
 .add-task-button {
+    display: flex;
     height: 2.3rem;
-    width: 2.4rem;
     margin: 0.75rem 0.2rem 0.5rem 0.6rem;
+}
+
+.add-task-button > i {
+    padding-top: 12px;
 }
 
 .add-task-additional-input {
@@ -541,7 +522,7 @@ i {
 .add-task-input {
     margin: 0.8rem 0.3rem 0.3rem 0.3rem;
     height: 2.2rem;
-    width: 57rem;
+    width: 58rem;
     outline: none;
     border-top: 0;
     border-left: 0;
@@ -563,8 +544,8 @@ i {
 }
 
 .addtask-additional-options {
-    display: flex;
-    margin: 1rem 0.3rem 0.2rem 2rem;
+    display: none;
+    margin: 1.5rem 0.3rem 1rem 2rem;
     height: 2rem;
     border: none;
 }

@@ -1,135 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>To Do</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <div class="apps-icon" align="center"> 
-          <i class="material-icons">apps</i>  
-        </div> 
-        <div class="to-do" align="center">To Do</div>
-        <div class="search-bar-container">
-          <div class="search-bar">
-              <input class="search-input" placeholder="Search">
-              <div class="search-icon" align="right">
-                <i class="material-icons">search</i>  
-              </div>
-          </div>
-        </div>
-        <div class="profile-and-options">
-          <div class="setting-icon" align="center">
-            <i id="right-icons" class="material-icons">settings</i>
-          </div>
-          <div class="help-icon" align="center">
-            <i id="right-icons" class="material-icons">help_outline</i>
-          </div>
-          <div class="notify-icon" align="center">
-            <i id="right-icons" class="material-icons">notifications_none</i>
-          </div>
-          <div class="profile-icon" align="center">
-            <i id="right-icons" class="material-icons">person</i>  
+
+<head>
+  <meta charset="UTF-8">
+  <title>To Do</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="apps-icon" align="center">
+        <i class="material-icons">apps</i>
+      </div>
+      <div class="to-do" align="center">To Do</div>
+      <div class="search-bar-container">
+        <div class="search-bar">
+          <input class="search-input" placeholder="Search">
+          <div class="search-icon" align="right">
+            <i class="material-icons">search</i>
           </div>
         </div>
       </div>
-      <div class="to-do-body">
-        <div id="left-portion">
-          <div class="menu-icon">
-            <i id="left-icons" class="material-icons">menu</i>
-          </div>
-          <div class="left-side-scroll-bar">
-            <div class="left-options"></div>  
-          </div>
-          <div class="new-list-option">
-            <div class="new-list-add-input">
-              <i class="material-icons">add</i>   
-              <input id="input-list" class="left-option-heading-newlist" placeholder="New list"></input>
-              <span class="material-icons-outlined">add_chart</span>
-            </div>    
-          </div>
-          <div class="left-bottom-options">
-            <div class="blocks">
-              <i class="material-icons">mail_outline</i>
-            </div>
-            <div class="blocks">
-              <i class="material-icons">insert_invitation</i>
-            </div>
-            <div class="blocks">
-              <i class="material-icons">people</i>
-            </div>
-            <div class="blocks">
-              <i class="material-icons">attach_file</i>
-            </div>
-            <div class="blocks">
-              <i class="material-icons">done</i>
-            </div>
-          </div>  
+      <div class="profile-and-options">
+        <div class="setting-icon" align="center">
+          <i id="right-icons" class="material-icons">settings</i>
         </div>
-        <div id="right-portion">
-          <div id="right-side-header"  class="right-side-header">
-            <div id="menu-icon-right">
-              <i id="right-menu-icon" class="material-icons">menu</i>
-            </div>
-            <div class="myday-header">
-              <div class="myday-container">
-                <div class="myday-font">My Day
-                  <div class="more-option"><i id="more-option-myday" class="material-icons">more_horiz</i></div>
-                </div>
-                <div>
-                  <span id="date-and-day"></span>
-                </div>
+        <div class="help-icon" align="center">
+          <i id="right-icons" class="material-icons">help_outline</i>
+        </div>
+        <div class="notify-icon" align="center">
+          <i id="right-icons" class="material-icons">notifications_none</i>
+        </div>
+        <div class="profile-icon" align="center">
+          <i id="right-icons" class="material-icons">person</i>
+        </div>
+      </div>
+    </div>
+    <div class="to-do-body">
+      <div id="left-portion">
+        <div class="menu-icon">
+          <i id="left-icons" class="material-icons">menu</i>
+        </div>
+        <div class="left-side-scroll-bar">
+          <div class="left-options"></div>
+        </div>
+        <div class="new-list-option">
+          <div class="new-list-add-input">
+            <i class="material-icons">add</i>
+            <input id="input-list" class="left-option-heading-newlist" placeholder="New list"></input>
+            <span class="material-icons-outlined">add_chart</span>
+          </div>
+        </div>
+        <div class="left-bottom-options">
+          <div class="blocks">
+            <i class="material-icons">mail_outline</i>
+          </div>
+          <div class="blocks">
+            <i class="material-icons">insert_invitation</i>
+          </div>
+          <div class="blocks">
+            <i class="material-icons">people</i>
+          </div>
+          <div class="blocks">
+            <i class="material-icons">attach_file</i>
+          </div>
+          <div class="blocks">
+            <i class="material-icons">done</i>
+          </div>
+        </div>
+      </div>
+      <div id="right-portion">
+        <div id="right-side-header" class="right-side-header">
+          <div id="menu-icon-right">
+            <i id="right-menu-icon" class="material-icons">menu</i>
+          </div>
+          <div class="myday-header">
+            <div class="myday-container">
+              <div class="myday-font">My Day</div>
+              <div>
+                <span id="date-and-day"></span>
               </div>
-            </div>
-            <div class="sort-suggestions">
-              <div class="sort-portion">
-                <div class="sort-icon">
-                  <i id="sort-suggestion-icons" class="material-icons">swap_vert</i>
-                </div>
-                <div class="sort-font">Sort</div>
-              </div>
-              <div class="suggestion-portion">
-                <div class="suggestion-icon">
-                  <i id="sort-suggestion-icons" class="material-icons">lightbulb_outline</i>
-                </div>
-                <div class="suggestion-font">Suggestions</div>
-              </div>
-            </div>  
-          </div> 
-          <div id="right-side-new-list-head" class="right-side-new-list-head">
-            <div class="sort-and-share">
-              <i id="sort-share-icons" class="material-icons">swap_vert</i>
-              <div class="sort-share-font">Sort</div>
-              <i id="sort-share-icons" class="material-icons">person_add</i>
-              <div class="sort-share-font">Share</div>
             </div>
           </div>
-          <div id="myday-add-task-container">
-            <div class="add-task-button">
-              <i class="material-icons">add</i>
+          <div class="sort-suggestions">
+            <div class="sort-portion">
+              <div class="sort-icon">
+                <i id="sort-suggestion-icons" class="material-icons">swap_vert</i>
+              </div>
+              <div class="sort-font">Sort</div>
             </div>
+            <div class="suggestion-portion">
+              <div class="suggestion-icon">
+                <i id="sort-suggestion-icons" class="material-icons">lightbulb_outline</i>
+              </div>
+              <div class="suggestion-font">Suggestions</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="myday-add-task-container">
+          <div class="add-task-button">
+            <i class="material-icons">add</i>
             <input class="add-task-input" placeholder="Add a task">
           </div>
-          <div id="myday-add-task-container-additional">
-            <div class="add-task-additional-input">
-              <i class="material-icons">radio_button_unchecked</i>
-              <input class="add-task-input" placeholder="Add a task">
-            </div>
-            <div class="addtask-additional-options">
-              <i class="material-icons">insert_invitation</i>
-              <i class="material-icons">notifications_none</i>
-              <i class="material-icons-outlined">event_repeat</i>
-              <div>Add</div>
-            </div>
+          <div class="addtask-additional-options">
+            <i class="material-icons">insert_invitation</i>
+            <i class="material-icons">notifications_none</i>
+            <i class="material-icons-outlined">event_repeat</i>
+            <div>Add</div>
           </div>
         </div>
       </div>
     </div>
-    <script src="toDo.js"></script> 
-  </body>
+  </div>
+  <script src="toDo.js"></script>
+</body>
 </html>
