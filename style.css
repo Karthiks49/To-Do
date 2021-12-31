@@ -1,7 +1,9 @@
 body {
     margin: 0;
     border: 0;
-    height: 100%;
+    max-height: 40rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .container {
@@ -70,6 +72,7 @@ body {
     margin: 0;
     border: 0;
     width: 22.55rem;
+    padding-left: 10px;
     border-radius: 0.1rem;
     outline: none;
     font-size: 0.9rem;
@@ -157,7 +160,9 @@ body {
 }
 
 #right-portion {
-    flex: 4;
+    display: flex;
+    flex-direction: column;
+    width: 62.2rem;
 }
 
 .right-side-new-list-head {
@@ -410,7 +415,7 @@ i {
     width: 10.5rem;
 }
 
-.myday-font {
+.right-heading {
     display: flex;
     height: 1.8rem;
     padding-left: 0.6rem;
@@ -484,7 +489,7 @@ i {
 }
 
 #myday-add-task-container {
-    flex: 5;
+    height: 6.3rem;
     margin-top: 0.2rem;
     margin-left: 0.5rem;
     border-radius: 0.3rem;
@@ -494,11 +499,12 @@ i {
 .add-task-button {
     display: flex;
     height: 2.3rem;
-    margin: 0.75rem 0.2rem 0.5rem 0.6rem;
+    margin-bottom: 22px;
 }
 
 .add-task-button > i {
     padding-top: 12px;
+    padding-left: 10px;
 }
 
 .add-task-additional-input {
@@ -521,6 +527,7 @@ i {
 
 .add-task-input {
     margin: 0.8rem 0.3rem 0.3rem 0.3rem;
+    padding-left: 10px;
     height: 2.2rem;
     width: 58rem;
     outline: none;
@@ -544,10 +551,11 @@ i {
 }
 
 .addtask-additional-options {
-    display: none;
-    margin: 1.5rem 0.3rem 1rem 2rem;
+    display: flex;
     height: 2rem;
     border: none;
+    margin-top: 25px;
+    margin-left: 42px;
 }
 
 .addtask-additional-options > i {
@@ -582,3 +590,46 @@ i {
     flex-direction: column;
 }
 
+.task-list {
+    width: 61.6rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sub-task {
+    width: 61rem;
+    height: 28px;
+    padding: 15px 10px 10px 10px;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.sub-task:hover {
+    background-color: #e2dcdcb0;
+}
+
+.sub-task::before {
+    font-family: "Material Icons Outlined";
+    content: "\e3a6";
+    margin: 10px 15px 10px 15px;
+    vertical-align: sub;
+    font-size: 20px;
+    color: #3F69E4;
+}
+
+.sub-task::after {
+    font-family: "Material Icons Outlined";
+    content: "\f06f";
+    margin-left: 54rem;
+    vertical-align: sub;
+    font-size: 20px;
+    color: #8F8F91;
+}
+
+.task-list-container {
+    flex: 1;
+    width: 62rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

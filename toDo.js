@@ -16,13 +16,13 @@ function dateAndDay() {
   var month = today.getMonth();
   var date = today.getDate();
   var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
-  var monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var monthList = ["January", "February", "March", "April", "May", "June", "July", "August", 
+                   "September", "October", "November", "December"];
   document.getElementById("date-and-day").innerText = daylist[day] + ', ' + monthList[month] + ' ' + date;
 }
 
 function displayLeftSubTopics() {
-
-  clearListItems();
+  clearItems();
   let id = 1;
   for (menuItem of items) {
     let subElements = document.createElement("div");
@@ -39,9 +39,10 @@ function displayLeftSubTopics() {
     document.getElementsByClassName("left-options")[0].appendChild(subElements);
     id++;
   }
+  document.getElementsByClassName("right-heading")[0].innerHTML = items[0].title;
 }
 
-function clearListItems() {
+function clearItems() {
   let menuList = document.getElementsByClassName("left-options")[0];
   let first = menuList.firstElementChild;
   while (first) {
@@ -50,17 +51,17 @@ function clearListItems() {
   }
 }
 
+document.getElementById("input-list").addEventListener("keydown", addList);
+
 function addList(event) {
-  if (event.keyCode === 13) {
-    var inputList = document.getElementById("input-list").value;
+  var inputList = document.getElementById("input-list").value;
+  if (13 == event.keyCode && "" == !inputList) {
     let subList = { id: items.length + 1, title: inputList, task: [] }
     items.push(subList);
     displayLeftSubTopics();
     document.getElementById("input-list").value = "";
   }
 }
-
-document.getElementById("input-list").addEventListener("keydown", addList);
 
 document.getElementsByClassName("left-options")[0].addEventListener('click', function (event) {
   for (i = 0; i < items.length; i++) {
@@ -72,45 +73,41 @@ document.getElementsByClassName("left-options")[0].addEventListener('click', fun
 });
 
 function showContent(title) {
-  document.getElementsByClassName("myday-font")[0].innerHTML = title;
+  document.getElementsByClassName("right-heading")[0].innerHTML = title;
+  renderTaskList(title);
 }
-
-
-document.getElementsByClassName("add-task-input")[0].addEventListener("click", function () {
-  document.getElementsByClassName("addtask-additional-options").className = "flex-display";
-})
 
 console.log(items);
 
+document.getElementsByClassName("add-task-input")[0].addEventListener("keydown", addSubTask);
 
-function addTaskContentToTaskGroup(event) {
-  let id = 1;
-  let newTask = document.getElementById("add-task-content").value;
-  if (13 == event.keyCode && "" == !newTask) {
-    title = document.getElementsByClassName("header-text-middle-container")[0].innerHTML;
-    for (let a of taskGroup) {
-      if (a.title == title) {
-        let newadd = { taskId: id, content: newTask }
-        a.task.push(newadd);
-        id++;
+function addSubTask(event) {
+  let subTask = document.getElementsByClassName("add-task-input")[0].value;
+  if (13 == event.keyCode && "" == !subTask) {
+    title = document.getElementsByClassName("right-heading")[0].innerHTML;
+    for (let item of items) {
+      if (item.title == title) {
+        let newadd = { taskId: item.task.length+1, content: subTask };
+        item.task.push(newadd);
       }
     }
-    document.getElementById("add-task-content").value = "";
-    renderTaskList(newTask, title);
+    document.getElementsByClassName("add-task-input")[0].value = "";
+    renderTaskList(title);
+    console.log(items);
   }
 }
 
 function renderTaskList(title) {
-  clearList("left-options");
+  clearList("task-list");
   let taskId = 1;
   for (let item of items) {
     if (item.title == title) {
       for (let task of item.task) {
-        let newTask = document.createElement("p");
-        newTask.setAttribute("class", "task");
+        let newTask = document.createElement("div");
+        newTask.setAttribute("class", "sub-task");
         newTask.setAttribute("id", taskId);
-        newTask.innerHTML = task.title;
-        document.getElementsByClassName("left-options")[0].appendChild(newTask);
+        newTask.innerHTML = task.content;
+        document.getElementsByClassName("task-list")[0].appendChild(newTask);
         taskId++;
       }
     }
