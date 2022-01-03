@@ -159,10 +159,10 @@ body {
     transition: .4s;
 }
 
-#right-portion {
+#middle-portion {
     display: flex;
     flex-direction: column;
-    width: 62.2rem;
+    width: 41.2rem;
 }
 
 .right-side-new-list-head {
@@ -490,6 +490,7 @@ i {
 
 #myday-add-task-container {
     height: 6.3rem;
+    width: 40.3rem;
     margin-top: 0.2rem;
     margin-left: 0.5rem;
     border-radius: 0.3rem;
@@ -529,7 +530,7 @@ i {
     margin: 0.8rem 0.3rem 0.3rem 0.3rem;
     padding-left: 10px;
     height: 2.2rem;
-    width: 58rem;
+    width: 35rem;
     outline: none;
     border-top: 0;
     border-left: 0;
@@ -564,9 +565,11 @@ i {
 }
 
 .addtask-additional-options > div {
-    margin: 0.3rem 0.2rem 0.2rem 50rem;
+    padding: 0.5rem 0.9rem 0.2rem 0.2rem;
+    text-align: right;
     font-size: 0.85rem;
     font-weight: 600;
+    width: 29.5rem;
     font-family: sans-serif;
     cursor: pointer;
 }
@@ -591,45 +594,49 @@ i {
 }
 
 .task-list {
-    width: 61.6rem;
     margin-left: 0.5rem;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.sub-task {
-    width: 61rem;
+.sub-task-container {
+    display: flex;
     height: 28px;
     padding: 15px 10px 10px 10px;
     font-size: 15px;
     font-family: sans-serif;
 }
 
-.sub-task:hover {
+.sub-task-container:hover {
     background-color: #e2dcdcb0;
 }
 
-.sub-task::before {
-    font-family: "Material Icons Outlined";
-    content: "\e3a6";
-    margin: 10px 15px 10px 15px;
-    vertical-align: sub;
+#sub-task-button-container {
+    width: 30px;
     font-size: 20px;
     color: #3F69E4;
+    padding-top: 3px;
+    padding-left: 5px;
 }
 
-.sub-task::after {
-    font-family: "Material Icons Outlined";
-    content: "\f06f";
-    margin-left: 54rem;
-    vertical-align: sub;
-    font-size: 20px;
+#sub-task-star-icon-container {
+    width: 1rem;
+    font-size: 15px;
+    padding-top: 5px;
     color: #8F8F91;
 }
 
 .task-list-container {
-    flex: 1;
-    width: 62rem;
+    width: 40.5rem;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+#sub-task-content {
+    width: 35rem;
+    padding: 5px 5px 5px 5px;
+}
+
+.right-portion {
+    width: 22rem;
 }

@@ -72,6 +72,15 @@ document.getElementsByClassName("left-options")[0].addEventListener('click', fun
   }
 });
 
+document.getElementsByClassName("task-list-container")[0].addEventListener("click", function (event){
+  for (i = 0; i < items.task.content.length; i++) {
+    if (event.target.id == i + 1) {
+      var content = items[i].title.content;
+        renderStepTask(content);
+    }
+  }
+})
+
 function showContent(title) {
   document.getElementsByClassName("right-heading")[0].innerHTML = title;
   renderTaskList(title);
@@ -103,11 +112,26 @@ function renderTaskList(title) {
   for (let item of items) {
     if (item.title == title) {
       for (let task of item.task) {
-        let newTask = document.createElement("div");
-        newTask.setAttribute("class", "sub-task");
-        newTask.setAttribute("id", taskId);
-        newTask.innerHTML = task.content;
-        document.getElementsByClassName("task-list")[0].appendChild(newTask);
+        let newTaskContainer = document.createElement("div");
+        let subTaskButton = document.createElement("div");
+        let button = document.createElement("div");
+        let taskContent = document.createElement("div");
+        let starIconContainer = document.createElement("div");
+        let starIcon = document.createElement("div");
+        newTaskContainer.setAttribute("class", "sub-task-container");
+        button.setAttribute("class", "fa fa-circle-o");
+        subTaskButton.setAttribute("id", "sub-task-button-container");
+        taskContent.setAttribute("id", "sub-task-content");
+        starIconContainer.setAttribute("id", "sub-task-star-icon-container");
+        starIcon.setAttribute("class", "far fa-star");
+        newTaskContainer.setAttribute("id", taskId);
+        taskContent.innerHTML = task.content;
+        subTaskButton.appendChild(button);
+        starIconContainer.appendChild(starIcon);
+        newTaskContainer.appendChild(subTaskButton);
+        newTaskContainer.appendChild(taskContent);
+        newTaskContainer.appendChild(starIconContainer);
+        document.getElementsByClassName("task-list")[0].appendChild(newTaskContainer);
         taskId++;
       }
     }
