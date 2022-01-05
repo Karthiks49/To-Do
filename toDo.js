@@ -72,15 +72,6 @@ document.getElementsByClassName("left-options")[0].addEventListener('click', fun
   }
 });
 
-document.getElementsByClassName("task-list-container")[0].addEventListener("click", function (event){
-  for (i = 0; i < items.task.content.length; i++) {
-    if (event.target.id == i + 1) {
-      var content = items[i].title.content;
-        renderStepTask(content);
-    }
-  }
-})
-
 function showContent(title) {
   document.getElementsByClassName("right-heading")[0].innerHTML = title;
   renderTaskList(title);
@@ -145,4 +136,28 @@ function clearList(className) {
     first.remove();
     first = menuList.firstElementChild;
   }
+}
+
+document.getElementsByClassName("menu-icon")[0].addEventListener("click", function (event){
+    document.getElementsByClassName("left-portion")[0].setAttribute("class", "hide");
+    document.getElementsByClassName("additional-menu-icon")[0].setAttribute("class", "appear");
+})
+
+document.getElementsByClassName("additional-menu-icon")[0].addEventListener("click", function (event){
+  document.getElementsByClassName("additional-menu-icon")[0].removeAttribute("class", "appear");
+  document.getElementsByClassName("left-portion")[0].removeAttribute("class", "hide");
+  document.getElementsByClassName("left-portion")[0].setAttribute("class", "flex-display");
+})
+
+document.getElementsByClassName("task-list")[0].addEventListener("click", function (event){
+  for (i = 0; i < items.task.content.length; i++) {
+    if (event.target.id == i + 1) {
+      var content = items[i].title.content;
+      renderStepTaskHead(content);
+    }
+  }
+})
+
+function renderStepTaskHead(content) {
+  document.getElementsByClassName("step-task-head")[0].innerHTML = content;
 }
