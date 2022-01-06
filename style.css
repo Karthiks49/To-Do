@@ -612,7 +612,7 @@ i {
     background-color: #e2dcdcb0;
 }
 
-#sub-task-button-container {
+.sub-task-button-container {
     width: 30px;
     font-size: 20px;
     color: #3F69E4;
@@ -620,7 +620,7 @@ i {
     padding-left: 5px;
 }
 
-#sub-task-star-icon-container {
+.sub-task-star-icon-container {
     width: 1rem;
     font-size: 15px;
     padding-top: 5px;
@@ -633,13 +633,14 @@ i {
     overflow-x: hidden;
 }
 
-#sub-task-content {
+.sub-task-content {
     width: 35rem;
     padding: 5px 5px 5px 5px;
 }
 
 .right-portion {
     width: 22rem;
+    background-color: #eeeeee;
 }
 
 .additional-menu-icon {
@@ -649,7 +650,60 @@ i {
 }
 
 .step-task-head {
+    display: flex;
     height: 50px;
-    background-color: #5CA52D;
-    margin: 10px 10px 10px 10px;
+}
+
+.step-task-container {
+    display: flex;
+    overflow-y: auto;
+    height: 37px;
+    flex-direction: column;
+    margin: 10px 10px 0 10px;
+    background-color: white;
+}
+
+.add-step-input {
+    width: 18rem;
+    height: 37px;
+    border: none;
+    outline: none;
+    margin-top: 6px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.step-task-input {
+    display: flex;
+    background-color: white;
+    height: 50px;
+    margin: 0 10px 5px 10px;
+}
+
+.step-task-add-button {
+    padding-top: 7px;
+    padding-left: 5px;
+    width: 30px;
+    margin: 6px 0 6px 7px;
+    color: #629cf2;
+}
+
+.step-task-head-button {
+    width: 30px;
+    margin: 7px 0 7px 7px;
+    padding: 5px 3px 5px 5px;
+    color: #629cf2;
+}
+
+.step-task-title {
+    margin: 7px 7px 7px 0;
+    width: 18rem;
+    padding: 9px 5px 5px 5px;
+    font-family: "Segoe UI", Arial, "sans-serif";
+    font-size: 16px;
+}
+
+.step-task-list-content {
+    position: relative;
+    height: 1rem;
 }

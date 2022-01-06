@@ -8,6 +8,8 @@ var items = [{ id: 1, title: "My Day", task: [] },
 (function init() {
   displayLeftSubTopics();
   dateAndDay();
+  renderStepTaskTitle();
+  addStepTaskList();
 })();
 
 function dateAndDay() {
@@ -77,8 +79,6 @@ function showContent(title) {
   renderTaskList(title);
 }
 
-console.log(items);
-
 document.getElementsByClassName("add-task-input")[0].addEventListener("keydown", addSubTask);
 
 function addSubTask(event) {
@@ -87,7 +87,7 @@ function addSubTask(event) {
     title = document.getElementsByClassName("right-heading")[0].innerHTML;
     for (let item of items) {
       if (item.title == title) {
-        let newadd = { taskId: item.task.length+1, content: subTask };
+        let newadd = { taskId: item.task.length+1, content: subTask, stepTask:[]};
         item.task.push(newadd);
       }
     }
@@ -111,9 +111,10 @@ function renderTaskList(title) {
         let starIcon = document.createElement("div");
         newTaskContainer.setAttribute("class", "sub-task-container");
         button.setAttribute("class", "fa fa-circle-o");
-        subTaskButton.setAttribute("id", "sub-task-button-container");
-        taskContent.setAttribute("id", "sub-task-content");
-        starIconContainer.setAttribute("id", "sub-task-star-icon-container");
+        subTaskButton.setAttribute("class", "sub-task-button-container");
+        taskContent.setAttribute("class", "sub-task-content");
+        taskContent.setAttribute("id", taskId);
+        starIconContainer.setAttribute("class", "sub-task-star-icon-container");
         starIcon.setAttribute("class", "far fa-star");
         newTaskContainer.setAttribute("id", taskId);
         taskContent.innerHTML = task.content;
@@ -149,15 +150,64 @@ document.getElementsByClassName("additional-menu-icon")[0].addEventListener("cli
   document.getElementsByClassName("left-portion")[0].setAttribute("class", "flex-display");
 })
 
-document.getElementsByClassName("task-list")[0].addEventListener("click", function (event){
-  for (i = 0; i < items.task.content.length; i++) {
-    if (event.target.id == i + 1) {
-      var content = items[i].title.content;
-      renderStepTaskHead(content);
+
+
+function renderStepTaskTitle() {
+  document.getElementsByClassName("task-list-container")[0].addEventListener("click", function (event) {
+    let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+    for (i = 0; i < items.length; i++) {
+      if (title == items[i].title) {
+        for (j=0; j < items[i].task.length; j++) {
+          if (event.target.id == j+1) {
+            document.getElementsByClassName("step-task-title")[0].innerHTML = items[i].task[j].content;
+          }
+        }
+      }
+    }
+  })
+}
+
+function addStepTaskList() {
+  document.getElementsByClassName("add-step-input")[0].addEventListener("keydown", function (event) {
+    let stepTaskContent = document.getElementsByClassName("add-step-input")[0].value;
+    let stepTaskTitle = document.getElementsByClassName("step-task-title")[0].innerHTML;
+    if (13 == event.keyCode && "" == !stepTaskContent) {
+      let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+      for (let item of items) {
+        if (item.title == title) {
+          for (let subTask of item.task) {
+            if (subTask.content == stepTaskTitle) {
+              let newAdd = { stepTaskId: subTask.stepTask.length + 1, stepTask : stepTaskContent};
+              subTask.stepTask.push(newAdd);
+            }
+          }
+        }
+      }
+      document.getElementsByClassName("add-step-input")[0].value = "";
+      renderStepTaskList(title, stepTaskTitle, stepTaskContent);
+      console.log(items);
+    }
+  })
+}
+
+function renderStepTaskList(title, stepTaskTitle, stepTaskContent) {
+  let stepTaskId = 1;
+  for (let item of items) {
+    if (item.title == title) {
+      for (let task of item.task) {
+        if (task.content == stepTaskTitle) {
+
+          let newTaskContainer = document.createElement("div");
+
+          newTaskContainer.setAttribute("class", "step-task-list-content");
+
+          newTaskContainer.setAttribute("id", stepTaskId);
+          newTaskContainer.innerHTML = stepTaskContent;
+
+          document.getElementsByClassName("step-task-container")[0].appendChild(newTaskContainer);
+          stepTaskId++;
+        }
+      }
     }
   }
-})
-
-function renderStepTaskHead(content) {
-  document.getElementsByClassName("step-task-head")[0].innerHTML = content;
 }
