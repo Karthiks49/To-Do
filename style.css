@@ -594,18 +594,25 @@ i {
     flex-direction: column;
 }
 
-.task-list {
-    margin-left: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .sub-task-container {
     display: flex;
     height: 28px;
     padding: 15px 10px 10px 10px;
     font-size: 15px;
     font-family: sans-serif;
+}
+
+.completed-task-container {
+    display: flex;
+    height: 28px;
+    padding: 15px 10px 10px 10px;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.task-completed-heading {
+    height: 1rem;
+    font-size: 15px;
 }
 
 .sub-task-container:hover {
@@ -640,6 +647,9 @@ i {
 
 .right-portion {
     width: 22rem;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
     background-color: #eeeeee;
 }
 
@@ -652,14 +662,14 @@ i {
 .step-task-head {
     display: flex;
     height: 50px;
+    margin: 10px 10px 0 10px;
+    background-color: white;
 }
 
 .step-task-container {
     display: flex;
-    overflow-y: auto;
-    height: 37px;
     flex-direction: column;
-    margin: 10px 10px 0 10px;
+    margin: 0 10px 0 10px;
     background-color: white;
 }
 
@@ -701,9 +711,33 @@ i {
     padding: 9px 5px 5px 5px;
     font-family: "Segoe UI", Arial, "sans-serif";
     font-size: 16px;
+    cursor: default;
 }
 
-.step-task-list-content {
+.step-task-list-container {
+    display: flex;
     position: relative;
+    height: 2.5rem;
+    cursor: default; 
+}
+
+.step-task-list-container:hover {
+    background-color: #eeeeee;
+}
+
+.step-task-button-container {
+    margin: 12px 5px 10px 16px;
+    width: 1rem;
     height: 1rem;
+    color: #3F69E4;
+    cursor: pointer;
+}
+
+.step-task-content {
+    width: 17rem;
+    margin: 9px 3px 9px 3px;
+    padding: 3px 3px 3px 8px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, "sans-serif";
+    color: #3a3d41;
 }
