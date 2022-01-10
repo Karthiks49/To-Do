@@ -160,9 +160,12 @@ body {
 }
 
 #middle-portion {
+    overflow: hidden;
+    position: relative;
+    background: white;
     display: flex;
     flex-direction: column;
-    width: 41.2rem;
+    flex: 1 1 0px;
 }
 
 .right-side-new-list-head {
@@ -647,7 +650,7 @@ i {
 
 .right-portion {
     width: 22rem;
-    display: flex;
+    display: none;
     overflow-y: auto;
     flex-direction: column;
     background-color: #eeeeee;

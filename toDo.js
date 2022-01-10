@@ -166,16 +166,19 @@ function clearList(className) {
   }
 }
 
-document.getElementsByClassName("menu-icon")[0].addEventListener("click", function (event) {
-  document.getElementsByClassName("left-portion")[0].setAttribute("class", "hide");
-  document.getElementsByClassName("additional-menu-icon")[0].setAttribute("class", "appear");
-})
+//closes left panel
+document.getElementById("menu-icon").addEventListener("click", function () {
+	document.getElementById("left-portion").className = "hide";
+	document.getElementById("additional-menu-icon").className = "appear";
+}
+);
 
-document.getElementsByClassName("additional-menu-icon")[0].addEventListener("click", function (event) {
-  document.getElementsByClassName("additional-menu-icon")[0].removeAttribute("class", "appear");
-  document.getElementsByClassName("left-portion")[0].removeAttribute("class", "hide");
-  document.getElementsByClassName("left-portion")[0].setAttribute("class", "flex-display");
-})
+//opens left panel
+document.getElementById("additional-menu-icon").addEventListener("click", function () {
+	document.getElementById("left-portion").className = "appear";
+	document.getElementById("additional-menu-icon").className = "hide";
+}
+);
 
 function renderStepTaskTitle() {
   document.getElementsByClassName("task-list-container")[0].addEventListener("click", function (event) {
@@ -247,3 +250,4 @@ function renderStepTaskList(title) {
     }
   }
 }
+
