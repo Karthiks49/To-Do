@@ -66,6 +66,7 @@ function addList(event) {
 }
 
 document.getElementsByClassName("left-options")[0].addEventListener('click', function (event) {
+  document.getElementById("right-portion").className = "hide";
   for (i = 0; i < items.length; i++) {
     if (event.target.id == i + 1) {
       var title = items[i].title;
@@ -166,22 +167,24 @@ function clearList(className) {
   }
 }
 
-//closes left panel
-document.getElementById("menu-icon").addEventListener("click", function () {
-	document.getElementById("left-portion").className = "hide";
-	document.getElementById("additional-menu-icon").className = "appear";
-}
-);
 
-//opens left panel
+document.getElementById("menu-icon").addEventListener("click", function () {
+  document.getElementById("left-portion").className = "hide";
+  document.getElementById("additional-menu-icon").className = "appear";
+});
+
 document.getElementById("additional-menu-icon").addEventListener("click", function () {
-	document.getElementById("left-portion").className = "appear";
-	document.getElementById("additional-menu-icon").className = "hide";
-}
-);
+  document.getElementById("left-portion").className = "left-portion";
+  document.getElementById("additional-menu-icon").className = "hide";
+});
+
+document.getElementById("add-task-input").addEventListener("click", function () {
+  document.getElementById("addtask-additional-options").className = "additonal-option-display";
+});
 
 function renderStepTaskTitle() {
   document.getElementsByClassName("task-list-container")[0].addEventListener("click", function (event) {
+    document.getElementById("right-portion").className = "right-portion-appear";
     clearList("step-task-container");
     let title = document.getElementsByClassName("right-heading")[0].innerHTML;
     for (i = 0; i < items.length; i++) {
