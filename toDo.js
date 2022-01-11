@@ -10,6 +10,7 @@ var items = [{ id: 1, title: "My Day", task: [] },
   dateAndDay();
   renderStepTaskTitle();
   addStepTaskList();
+  completedTask();
 })();
 
 function dateAndDay() {
@@ -27,6 +28,7 @@ function displayLeftSubTopics() {
   clearItems();
   let id = 1;
   for (menuItem of items) {
+    let taskCount = menuItem.task.length;
     let subElements = document.createElement("div");
     let title = document.createElement("div");
     let count = document.createElement("div");
@@ -36,12 +38,16 @@ function displayLeftSubTopics() {
     title.setAttribute("id", id);
     title.innerHTML = menuItem.title;
     count.setAttribute("class", "menu-count");
+
+    if (1 <= taskCount) {
+      count.innerHTML = taskCount;
+    }
+
     subElements.appendChild(title);
     subElements.appendChild(count);
     document.getElementsByClassName("left-options")[0].appendChild(subElements);
     id++;
   }
-  document.getElementsByClassName("right-heading")[0].innerHTML = items[0].title;
 }
 
 function clearItems() {
@@ -63,6 +69,9 @@ function addList(event) {
     displayLeftSubTopics();
     document.getElementById("input-list").value = "";
   }
+  document.getElementsByClassName("right-heading")[0].innerHTML = inputList;
+  renderTaskList(inputList);
+  document.getElementById("right-portion").className = "hide";
 }
 
 document.getElementsByClassName("left-options")[0].addEventListener('click', function (event) {
@@ -91,7 +100,7 @@ function addSubTask(event) {
     }
     document.getElementsByClassName("add-task-input")[0].value = "";
     renderTaskList(title);
-    console.log(items);
+    displayLeftSubTopics();
   }
 }
 
@@ -99,6 +108,7 @@ function renderTaskList(title) {
   clearList("task-list");
   clearList("completed-task-list");
   let taskId = 1;
+  let completedCount = 0;
   for (let item of items) {
     if (item.title == title) {
       for (let task of item.task) {
@@ -109,6 +119,7 @@ function renderTaskList(title) {
         let starIconContainer = document.createElement("div");
         let starIcon = document.createElement("div");
         newTaskContainer.setAttribute("class", "sub-task-container");
+        newTaskContainer.setAttribute("id", taskId);
         button.setAttribute("id", taskId);
         subTaskButton.setAttribute("class", "sub-task-button-container");
         taskContent.setAttribute("class", "sub-task-content");
@@ -127,34 +138,72 @@ function renderTaskList(title) {
         if (task.completed === false) {
           button.setAttribute("class", "fa fa-circle-o");
           document.getElementsByClassName("task-list")[0].appendChild(newTaskContainer);
+          completedTask();
         } else {
+          taskContent.setAttribute("class", "completed-sub-task-content");
           button.setAttribute("class", "fas fa-check-circle");
           document.getElementsByClassName("completed-task-list")[0].appendChild(newTaskContainer);
+          inCompletedTask();
+          completedCount++;
         }
+      }
+      if (completedCount >= 1) {
+        document.getElementById("completed-task-title").innerHTML = "Completed";
+        document.getElementById("completed-arrow-icon").setAttribute("class", "fas fa-chevron-down");
+        document.getElementById("completed-count").innerHTML = completedCount;
+      } else {
+        document.getElementById("completed-task-title").innerHTML = "";
+        document.getElementById("completed-arrow-icon").setAttribute("class", "");
+        document.getElementById("completed-count").innerHTML = "";
       }
     }
   }
 }
 
 
-let taskList = document.querySelector(".task-list");
-let subTaskContainer = taskList.querySelectorAll(".sub-task-container");
-for (let task of subTaskContainer) {
-  let taskIcons = task.querySelectorAll(":scope > .sub-task-button-container");
-  for (let taskIcon of taskIcons) {
-    taskIcon.addEventListener("click", function (event) {
-      let title = document.getElementsByClassName("right-heading")[0].innerHTML;
-      for (let item of items) {
-        if (item.title == title) {
-          for (let task of item.task) {
-            if (event.target.id == task.taskId) {
-              task.completed = true;
+function completedTask() {
+  let taskList = document.querySelector(".task-list");
+  let subTaskContainer = taskList.querySelectorAll(".sub-task-container");
+  for (let task of subTaskContainer) {
+    let taskIcons = task.querySelectorAll(":scope > .sub-task-button-container");
+    for (let taskIcon of taskIcons) {
+      taskIcon.addEventListener("click", function (event) {
+        let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+        for (let item of items) {
+          if (item.title == title) {
+            for (let task of item.task) {
+              if (event.target.id == task.taskId) {
+                task.completed = true;
+              }
             }
           }
         }
-      }
-      renderTaskList(title);
-    })
+        renderTaskList(title);
+      })
+    }
+  }
+}
+
+function inCompletedTask() {
+  let taskList = document.querySelector(".completed-task-list");
+  let subTaskContainer = taskList.querySelectorAll(".sub-task-container");
+  for (let task of subTaskContainer) {
+    let taskIcons = task.querySelectorAll(":scope > .sub-task-button-container");
+    for (let taskIcon of taskIcons) {
+      taskIcon.addEventListener("click", function (event) {
+        let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+        for (let item of items) {
+          if (item.title == title) {
+            for (let task of item.task) {
+              if (event.target.id == task.taskId) {
+                task.completed = false;
+              }
+            }
+          }
+        }
+        renderTaskList(title);
+      })
+    }
   }
 }
 
@@ -166,7 +215,6 @@ function clearList(className) {
     first = menuList.firstElementChild;
   }
 }
-
 
 document.getElementById("menu-icon").addEventListener("click", function () {
   document.getElementById("left-portion").className = "hide";
@@ -191,26 +239,59 @@ function renderStepTaskTitle() {
       if (title == items[i].title) {
         for (j = 0; j < items[i].task.length; j++) {
           if (event.target.id == j + 1) {
-            document.getElementsByClassName("step-task-title")[0].innerHTML = items[i].task[j].content;
-            renderStepTaskList(title);
+            if (items[i].task[j].completed == false) {
+              document.getElementById("step-task-head-button").className = "fa fa-circle-o";
+              document.getElementById("step-task-title").className = "step-task-title";
+              document.getElementById("step-task-title").innerHTML = items[i].task[j].content;
+              break;
+            } else {
+              document.getElementById("step-task-head-button").className = "fas fa-check-circle";
+              document.getElementById("step-task-title").className = "completed-step-task-title";
+              document.getElementById("step-task-title").innerHTML = items[i].task[j].content;
+            }
           }
         }
       }
     }
+    renderStepTaskList(title);
   })
 }
+
+document.getElementsByClassName("step-task-container")[0].addEventListener("click", function (event) {
+  let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+  let subTask = document.getElementsByClassName("sub-task-content")[0].innerHTML;
+  for (i = 0; i < items.length; i++) {
+    if (title == items[i].title) {
+      for (j = 0; j < items[i].task.length; j++) {
+        if (subTask == items[i].task[j].content) {
+          for (k = 0; k < items[i].task[j].stepTask.length; k++) {
+            if (event.target.id == k + 1) {
+              if (items[i].task[j].stepTask[k].completed == false) {
+                items[i].task[j].stepTask[k].completed = true;
+              } else {
+                items[i].task[j].stepTask[k].completed = false;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  renderStepTaskList(title);
+})
+
 
 function addStepTaskList() {
   document.getElementsByClassName("add-step-input")[0].addEventListener("keydown", function (event) {
     let stepTaskContent = document.getElementsByClassName("add-step-input")[0].value;
-    let stepTaskTitle = document.getElementsByClassName("step-task-title")[0].innerHTML;
+    let stepTaskTitle = document.getElementById("step-task-title").innerHTML;
     if (13 == event.keyCode && "" == !stepTaskContent) {
       let title = document.getElementsByClassName("right-heading")[0].innerHTML;
       for (let item of items) {
         if (item.title == title) {
           for (let subTask of item.task) {
             if (subTask.content == stepTaskTitle) {
-              let newAdd = { stepTaskId: subTask.stepTask.length + 1, stepTask: stepTaskContent };
+              let newAdd = { stepTaskId: subTask.stepTask.length + 1, stepTask: stepTaskContent, completed: false };
               subTask.stepTask.push(newAdd);
             }
           }
@@ -225,7 +306,7 @@ function addStepTaskList() {
 
 function renderStepTaskList(title) {
   clearList("step-task-container");
-  let stepTaskTitle = document.getElementsByClassName("step-task-title")[0].innerHTML;
+  let stepTaskTitle = document.getElementById("step-task-title").innerHTML;
   let stepTaskId = 1;
   for (let item of items) {
     if (item.title == title) {
@@ -239,8 +320,15 @@ function renderStepTaskList(title) {
             stepTaskContainer.setAttribute("class", "step-task-list-container");
             stepTaskButtonContainer.setAttribute("class", "step-task-button-container");
             stepTaskButton.setAttribute("id", stepTaskId);
-            stepTaskButton.setAttribute("class", "far fa-check-circle");
-            stepTaskContentElement.setAttribute("class", "step-task-content");
+
+            if (task.stepTask[i].completed == false) {
+              stepTaskButton.setAttribute("class", "fa fa-circle-o");
+              stepTaskContentElement.setAttribute("class", "step-task-content");
+            } else {
+              stepTaskButton.setAttribute("class", "fas fa-check-circle");
+              stepTaskContentElement.setAttribute("class", "completed-step-task-content");
+            }
+
             stepTaskContentElement.innerHTML = task.stepTask[i].stepTask;
             stepTaskButtonContainer.appendChild(stepTaskButton);
             stepTaskContainer.appendChild(stepTaskButtonContainer);

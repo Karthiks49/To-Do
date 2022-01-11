@@ -28,7 +28,7 @@
       </div>
       <div class="profile-and-options">
         <div class="setting-icon" align="center">
-          <i id="right-icons" class="material-icons">settings</i>
+          <i id="right-icons" class="material-icons-outlined">settings</i>
         </div>
         <div class="help-icon" align="center">
           <i id="right-icons" class="material-icons">help_outline</i>
@@ -84,7 +84,7 @@
               <i id="left-icons" class="material-icons">menu</i>
             </div>
             <div class="middle-container">
-              <div class="right-heading"></div>
+              <div class="right-heading">My Day</div>
               <div>
                 <span id="date-and-day"></span>
               </div>
@@ -119,15 +119,20 @@
         </div>
         <div class="task-list-container">
           <div class="task-list"></div>
-          <div class="completed-task-list"></div>
+          <div class="completed-task-list-container">
+            <div class="completed-task-title-container">
+              <div id="completed-arrow-icon"></div>
+              <div id="completed-task-title" class="completed-task-title"></div>
+              <div id="completed-count" class="completed-count"></div>
+            </div>
+            <div class="completed-task-list"></div>
+          </div>
         </div>
       </div>
       <div id="right-portion" class="right-portion">
         <div class="step-task-head">
-          <div class="step-task-head-button">
-            <i class="material-icons">panorama_fish_eye</i>
-          </div>
-          <div class="step-task-title"></div>
+          <div id="step-task-head-button"></div>
+          <div id="step-task-title"></div>
         </div>
         <div class="step-task-container"></div>
         <div class="step-task-input">
@@ -136,6 +141,45 @@
           </div>
           <input class="add-step-input" placeholder="Add step">
         </div>
+        <div class="right-portion-sub-container">
+          <div class="right-portion-middle-icons">
+            <i class="material-icons-outlined">wb_sunny</i>
+          </div>
+          <div class="right-portion-middle-content">Add to My Day</div>
+        </div>
+        <div class="right-third-container">
+          <div class="right-portion-sub-container">
+            <div class="right-portion-third-container-icons">
+              <i class="material-icons-outlined">notifications</i>
+            </div>
+            <div class="right-portion-middle-content">Remind me</div>
+          </div>
+          <div class="right-portion-sub-container">
+            <div class="right-portion-third-container-icons">
+              <i class="material-icons-outlined">date_range</i>
+            </div>
+            <div class="right-portion-middle-content">Add due date</div>
+          </div>
+          <div class="right-portion-sub-container">
+            <div class="right-portion-third-container-icons">
+              <i class="material-icons-outlined">event</i>
+            </div>
+            <div class="right-portion-middle-content">Repeat</div>
+          </div>
+        </div>
+        <div class="right-portion-sub-container">
+          <div class="right-portion-middle-icons">
+            <i class="fas fa-tag"></i>
+          </div>
+          <div class="right-portion-middle-content">Pick a category</div>
+        </div>
+        <div class="right-portion-sub-container">
+          <div class="right-portion-middle-icons">
+            <i class="material-icons-outlined">attach_file</i>
+          </div>
+          <div class="right-portion-middle-content">Add file</div>
+        </div>
+        <div class="right-portion-blank"></div>
       </div>
     </div>
   </div>

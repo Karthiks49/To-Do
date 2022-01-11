@@ -237,8 +237,12 @@ i {
 }
 
 .menu-count {
-    height: 2.25rem;
-    width: 0.9rem;
+    text-align: center;
+    width: 23px;
+    padding: 10px 0 10px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #343742;
 }
 
 .menu-item:focus {
@@ -265,7 +269,7 @@ i {
 }
 
 .left-option-heading {
-    width: 10rem;
+    width: 15.5rem;
     height: 1.65rem;
     padding-top: 0.5rem;
     padding-left: 0.3rem;
@@ -275,7 +279,7 @@ i {
 }
 
 .left-option-heading::before {
-    font-family: "Material Icons";
+    font-family: "Material Icons Outlined";
     padding: 0.2rem 0.7rem 0.2rem 0.7rem;
     font-size: 1.2rem;
     vertical-align: text-bottom;
@@ -321,7 +325,7 @@ i {
 } 
 
 .left-options :nth-child(n+7) > .left-option-heading {
-    color: #2E5DDC;
+    color: #464342;
 }
 
 .new-list-add-input > i {
@@ -339,7 +343,6 @@ i {
 
 .left-option-heading-newlist {
     width: 11.5rem;
-    height: 2rem;
     font-size: 14px;
     margin-left: 0.4rem;
     font-family: sans-serif;
@@ -554,6 +557,7 @@ i {
 
 .addtask-additional-options {
     display: none;
+    color: #767678;
 }
 
 .add-task-add-option {
@@ -588,9 +592,11 @@ i {
     margin-top: 0.5rem;
     margin-left: 42px;
     height: 2rem;
+
 }
 
 .additonal-option-display > i {
+    color: #767678;
     margin: 0.3rem 0.5rem 0.2rem 0.5rem;
     font-size: 1.3rem;
 }
@@ -633,6 +639,7 @@ i {
     color: #3F69E4;
     padding-top: 3px;
     padding-left: 5px;
+    cursor: pointer;
 }
 
 .sub-task-star-icon-container {
@@ -657,6 +664,13 @@ i {
 .sub-task-content {
     flex: 1;
     padding: 5px 5px 5px 5px;
+}
+
+.completed-sub-task-content {
+    color: rgb(70, 67, 67);
+    flex: 1;
+    padding: 5px 5px 5px 5px;
+    text-decoration: line-through;
 }
 
 .right-portion {
@@ -708,11 +722,11 @@ i {
     color: #629cf2;
 }
 
-.step-task-head-button {
-    width: 30px;
-    margin: 7px 0 7px 7px;
+#step-task-head-button {
+    width: 25px;
+    margin: 13px 0 7px 10px;
     padding: 5px 3px 5px 5px;
-    color: #629cf2;
+    color: #0066ff;
 }
 
 .step-task-title {
@@ -722,6 +736,16 @@ i {
     font-family: "Segoe UI", Arial, "sans-serif";
     font-size: 16px;
     cursor: default;
+}
+
+.completed-step-task-title {
+    margin: 7px 7px 7px 0;
+    width: 18rem;
+    padding: 9px 5px 5px 5px;
+    font-family: "Segoe UI", Arial, "sans-serif";
+    font-size: 16px;
+    cursor: default;
+    text-decoration: line-through;
 }
 
 .step-task-list-container {
@@ -750,4 +774,87 @@ i {
     font-size: 13px;
     font-family: "Segoe UI", Arial, "sans-serif";
     color: #3a3d41;
+}
+
+.completed-step-task-content {
+    text-decoration: line-through;
+    width: 17rem;
+    margin: 9px 3px 9px 3px;
+    padding: 3px 3px 3px 8px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, "sans-serif";
+    color: #a0a0a0;
+}
+
+.completed-task-title-container {
+    display: flex;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px 2px 15px 22px;
+}
+
+.completed-task-title {
+    padding-left: 20px;
+    padding-right: 14px;
+}
+
+.completed-count {
+    font-size: 15.5px;
+    color: #767678;
+}
+
+#completed-arrow-icon {
+    cursor: pointer;
+    color: #767678;
+}
+
+.right-portion-sub-container {
+    display: flex;
+    height: 50px;
+    margin: 5px 10px 5px 10px;
+    background-color: white;
+    cursor: default;
+}
+
+.right-portion-middle-icons {
+    text-align: center;
+    width: 1.7rem;
+    margin: 15px 5px 15px 10px;
+    color: #767678;
+}
+
+.right-portion-middle-icons > i {
+    font-size: 20px;
+    cursor: default;
+}
+
+.right-portion-middle-content {
+    margin: 17px 5px 17px 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #767678;
+}
+
+.right-third-container {
+    margin: 5px 10px 5px 10px;
+    height: 170px;
+    background-color: white;
+}
+
+.right-portion-third-container-icons {
+    text-align: center;
+    width: 1.7rem;
+    margin: 15px 5px 15px 0;
+    color: #767678;
+}
+
+.right-portion-third-container-icons > i {
+    font-size: 20px;
+    cursor: default;
+}
+
+.right-portion-blank {
+    height: 130px;
+    margin: 5px 10px 5px 10px;
+    background-color: white;
 }
