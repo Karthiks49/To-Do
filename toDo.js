@@ -21,7 +21,7 @@ function dateAndDay() {
   var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
   var monthList = ["January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"];
-  document.getElementById("date-and-day").innerText = daylist[day] + ', ' + monthList[month] + ' ' + date;
+    $("#date-and-day").text(daylist[day] + ', ' + monthList[month] + ' ' + date);
 }
 
 function displayLeftSubTopics() {
@@ -45,7 +45,7 @@ function displayLeftSubTopics() {
 
     subElements.appendChild(title);
     subElements.appendChild(count);
-    document.getElementsByClassName("left-options")[0].appendChild(subElements);
+    $(".left-options")[0].appendChild(subElements);
     id++;
   }
 }
@@ -59,50 +59,46 @@ function clearItems() {
   }
 }
 
-document.getElementById("input-list").addEventListener("keydown", addList);
-
-function addList(event) {
-  var inputList = document.getElementById("input-list").value;
+$("#input-list").keydown(function (event) {
+  var inputList = $("#input-list").val();
   if (13 == event.keyCode && "" == !inputList) {
     let subList = { id: items.length + 1, title: inputList, task: [] }
     items.push(subList);
     displayLeftSubTopics();
-    document.getElementById("input-list").value = "";
+    $("#input-list").val("");
   }
-  document.getElementsByClassName("right-heading")[0].innerHTML = inputList;
+  $(".right-heading").text(inputList);
   renderTaskList(inputList);
-  document.getElementById("right-portion").className = "hide";
-}
+  $("#right-portion").attr("class", "hide");
+});
 
-document.getElementsByClassName("left-options")[0].addEventListener('click', function (event) {
-  document.getElementById("right-portion").className = "hide";
+$(".left-options").click(function (event) {
+  $("#right-portion").attr("class", "hide");
   for (i = 0; i < items.length; i++) {
     if (event.target.id == i + 1) {
       var title = items[i].title;
-      document.getElementsByClassName("right-heading")[0].innerHTML = title;
+      $(".right-heading").text(title);
       renderTaskList(title);
     };
   }
 });
 
-
-document.getElementsByClassName("add-task-input")[0].addEventListener("keydown", addSubTask);
-
-function addSubTask(event) {
-  let subTask = document.getElementsByClassName("add-task-input")[0].value;
+$(".add-task-input").keydown(function (event) {
+  let subTask = $(".add-task-input").val();
   if (13 == event.keyCode && "" == !subTask) {
-    title = document.getElementsByClassName("right-heading")[0].innerHTML;
+    title = $(".right-heading").text();
     for (let item of items) {
       if (item.title == title) {
         let newadd = { taskId: item.task.length + 1, completed: false, content: subTask, stepTask: [] };
         item.task.push(newadd);
       }
     }
-    document.getElementsByClassName("add-task-input")[0].value = "";
+    $(".add-task-input").val("");
+    $("#right-portion").attr("class", "hide");
     renderTaskList(title);
     displayLeftSubTopics();
   }
-}
+});
 
 function renderTaskList(title) {
   clearList("task-list");
@@ -137,29 +133,29 @@ function renderTaskList(title) {
 
         if (task.completed === false) {
           button.setAttribute("class", "fa fa-circle-o");
-          document.getElementsByClassName("task-list")[0].appendChild(newTaskContainer);
+          $(".task-list")[0].prepend(newTaskContainer);
           completedTask();
         } else {
           taskContent.setAttribute("class", "completed-sub-task-content");
           button.setAttribute("class", "fas fa-check-circle");
-          document.getElementsByClassName("completed-task-list")[0].appendChild(newTaskContainer);
+          $(".completed-task-list")[0].prepend(newTaskContainer);
           inCompletedTask();
           completedCount++;
         }
       }
+
       if (completedCount >= 1) {
-        document.getElementById("completed-task-title").innerHTML = "Completed";
-        document.getElementById("completed-arrow-icon").setAttribute("class", "fas fa-chevron-down");
-        document.getElementById("completed-count").innerHTML = completedCount;
+        $("#completed-task-title").text("Completed");
+        $("#completed-arrow-icon").attr("class", "fas fa-chevron-down");
+        $("#completed-count").text(completedCount);
       } else {
-        document.getElementById("completed-task-title").innerHTML = "";
-        document.getElementById("completed-arrow-icon").setAttribute("class", "");
-        document.getElementById("completed-count").innerHTML = "";
+        $("#completed-task-title").text("");
+        $("#completed-arrow-icon").attr("class", "");
+        $("#completed-count").text("");
       }
     }
   }
 }
-
 
 function completedTask() {
   let taskList = document.querySelector(".task-list");
@@ -168,7 +164,7 @@ function completedTask() {
     let taskIcons = task.querySelectorAll(":scope > .sub-task-button-container");
     for (let taskIcon of taskIcons) {
       taskIcon.addEventListener("click", function (event) {
-        let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+        let title = $(".right-heading").text();
         for (let item of items) {
           if (item.title == title) {
             for (let task of item.task) {
@@ -191,7 +187,7 @@ function inCompletedTask() {
     let taskIcons = task.querySelectorAll(":scope > .sub-task-button-container");
     for (let taskIcon of taskIcons) {
       taskIcon.addEventListener("click", function (event) {
-        let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+        let title = $(".right-heading").text();
         for (let item of items) {
           if (item.title == title) {
             for (let task of item.task) {
@@ -216,38 +212,38 @@ function clearList(className) {
   }
 }
 
-document.getElementById("menu-icon").addEventListener("click", function () {
-  document.getElementById("left-portion").className = "hide";
-  document.getElementById("additional-menu-icon").className = "appear";
+$("#menu-icon").click(function () {
+  $("#left-portion").attr("class", "hide");
+  $("#additional-menu-icon").attr("class", "appear");
 });
 
-document.getElementById("additional-menu-icon").addEventListener("click", function () {
-  document.getElementById("left-portion").className = "left-portion";
-  document.getElementById("additional-menu-icon").className = "hide";
+$("#additional-menu-icon").click(function () {
+  $("#left-portion").attr("class", "left-portion");
+  $("#additional-menu-icon").attr("class", "hide");
 });
 
-document.getElementById("add-task-input").addEventListener("click", function () {
-  document.getElementById("addtask-additional-options").className = "additonal-option-display";
+$("#add-task-input").click(function () {
+  $("#addtask-additional-options").attr("class", "additional-option-display");;
 });
 
 function renderStepTaskTitle() {
-  document.getElementsByClassName("task-list-container")[0].addEventListener("click", function (event) {
-    document.getElementById("right-portion").className = "right-portion-appear";
+  $(".task-list-container").click(function (event) {
+    $("#right-portion").attr("class", "right-portion-appear");
     clearList("step-task-container");
-    let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+    let title = $(".right-heading").text();
     for (i = 0; i < items.length; i++) {
       if (title == items[i].title) {
         for (j = 0; j < items[i].task.length; j++) {
           if (event.target.id == j + 1) {
             if (items[i].task[j].completed == false) {
-              document.getElementById("step-task-head-button").className = "fa fa-circle-o";
-              document.getElementById("step-task-title").className = "step-task-title";
-              document.getElementById("step-task-title").innerHTML = items[i].task[j].content;
+              $("#step-task-head-button").attr("class", "fa fa-circle-o");
+              $("#step-task-title").attr("class", "step-task-title");
+              $("#step-task-title").text(items[i].task[j].content);
               break;
             } else {
-              document.getElementById("step-task-head-button").className = "fas fa-check-circle";
-              document.getElementById("step-task-title").className = "completed-step-task-title";
-              document.getElementById("step-task-title").innerHTML = items[i].task[j].content;
+              $("#step-task-head-button").attr("class", "fas fa-check-circle");
+              $("#step-task-title").attr("class", "completed-step-task-title");
+              $("#step-task-title").text(items[i].task[j].content);
             }
           }
         }
@@ -257,9 +253,9 @@ function renderStepTaskTitle() {
   })
 }
 
-document.getElementsByClassName("step-task-container")[0].addEventListener("click", function (event) {
-  let title = document.getElementsByClassName("right-heading")[0].innerHTML;
-  let subTask = document.getElementsByClassName("sub-task-content")[0].innerHTML;
+$(".step-task-container").click(function (event) {
+  let title = $(".right-heading").text();
+  let subTask = $(".sub-task-content").text();
   for (i = 0; i < items.length; i++) {
     if (title == items[i].title) {
       for (j = 0; j < items[i].task.length; j++) {
@@ -278,15 +274,15 @@ document.getElementsByClassName("step-task-container")[0].addEventListener("clic
     }
   }
   renderStepTaskList(title);
-})
+});
 
 
 function addStepTaskList() {
-  document.getElementsByClassName("add-step-input")[0].addEventListener("keydown", function (event) {
-    let stepTaskContent = document.getElementsByClassName("add-step-input")[0].value;
-    let stepTaskTitle = document.getElementById("step-task-title").innerHTML;
+  $(".add-step-input").keydown(function (event) {
+    let stepTaskContent = $(".add-step-input").val();
+    let stepTaskTitle = $("#step-task-title").text();
     if (13 == event.keyCode && "" == !stepTaskContent) {
-      let title = document.getElementsByClassName("right-heading")[0].innerHTML;
+      let title = $(".right-heading").text();
       for (let item of items) {
         if (item.title == title) {
           for (let subTask of item.task) {
@@ -297,7 +293,7 @@ function addStepTaskList() {
           }
         }
       }
-      document.getElementsByClassName("add-step-input")[0].value = "";
+      $(".add-step-input").val("");
       renderStepTaskList(title);
       console.log(items);
     }
@@ -306,7 +302,7 @@ function addStepTaskList() {
 
 function renderStepTaskList(title) {
   clearList("step-task-container");
-  let stepTaskTitle = document.getElementById("step-task-title").innerHTML;
+  let stepTaskTitle = $("#step-task-title").text();
   let stepTaskId = 1;
   for (let item of items) {
     if (item.title == title) {
@@ -333,7 +329,7 @@ function renderStepTaskList(title) {
             stepTaskButtonContainer.appendChild(stepTaskButton);
             stepTaskContainer.appendChild(stepTaskButtonContainer);
             stepTaskContainer.appendChild(stepTaskContentElement);
-            document.getElementsByClassName("step-task-container")[0].appendChild(stepTaskContainer);
+            $(".step-task-container")[0].prepend(stepTaskContainer);
             stepTaskId++;
           }
         }

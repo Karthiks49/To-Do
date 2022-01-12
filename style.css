@@ -383,6 +383,13 @@ i {
     font-size: 1.2rem;
 }
 
+#blockTick {
+    color: #332fff;
+    padding-top: 0.6rem;
+    padding-left: 1.3rem;  
+    font-size: 1.2rem;
+}
+
 .right-side-header {
     display: flex;
     height: 5rem;
@@ -587,7 +594,7 @@ i {
     background-color: #eeeeee;
 }
 
-.additonal-option-display {
+.additional-option-display {
     display: flex;
     margin-top: 0.5rem;
     margin-left: 42px;
@@ -595,7 +602,7 @@ i {
 
 }
 
-.additonal-option-display > i {
+.additional-option-display > i {
     color: #767678;
     margin: 0.3rem 0.5rem 0.2rem 0.5rem;
     font-size: 1.3rem;
@@ -858,3 +865,4 @@ i {
     margin: 5px 10px 5px 10px;
     background-color: white;
 }
+
